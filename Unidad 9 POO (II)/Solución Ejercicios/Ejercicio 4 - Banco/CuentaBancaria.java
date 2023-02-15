@@ -1,7 +1,7 @@
 
 abstract public class CuentaBancaria {
 
-    // Atirbutos
+    // Atributos
     private final String iban;
     private double saldo;
     public static final double interesAnualBasico = 2.5;
@@ -19,7 +19,6 @@ abstract public class CuentaBancaria {
     public abstract void mostrar();
 
     // GETTERS
-    
     public String getIban() {
         return iban;
     }
@@ -44,9 +43,15 @@ abstract public class CuentaBancaria {
     }
 
     // Traspasamoa 'cantidad' de esta cuenta a cc
-    public void traspaso(double cantidad, CuentaBancaria cc) {
-        cc.ingresar(cantidad);
-        this.retirar(cantidad);
+    public boolean traspaso(double cantidad, CuentaBancaria cb) {
+        cantidad=Math.abs(cantidad);
+        if (this.getSaldo() > cantidad) {//comprobamos tener suficiente saldo
+            cb.ingresar(cantidad);
+            this.retirar(cantidad);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

@@ -1,9 +1,11 @@
 
+
+
 public class CuentaCorriente extends CuentaBancaria {
 
     // Constructor
-    public CuentaCorriente(String num, double saldo) {
-        super(num, saldo);
+    public CuentaCorriente(String iban, double saldo) {
+        super(iban, saldo);
     }
 
     // Calcula intereses y los ingresa en la cuenta
