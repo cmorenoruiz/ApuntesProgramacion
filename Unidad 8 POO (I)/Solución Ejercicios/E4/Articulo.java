@@ -10,6 +10,15 @@ public class Articulo {
     public static final int ivaReducido = 10;
     public static final int ivaSuperReducido = 4;
 
+    //Constructor para poder crear un articulo solo con nombre y precio    
+    public Articulo (String nombre, double precio){
+         this.nombre = nombre;
+         this.precio = precio;
+         //Valores por defecto
+         cuantosQuedan = 0;
+         iva= ivaGeneral;
+    }
+
     public Articulo(String nombre, double precio, int iva, int cuantosQuedan) {
         if (nombre.equals("")) {
             System.err.println("ERROR: El nombre no puede estar vacío");
